@@ -34,5 +34,9 @@ model Attendee {
   // Cada participante pertence a 1 evento
   event Event @relation(fields: [eventId], references: [id])
 
+  // Aqui estou falando para o banco
+  // que só de pode ter o email registrado
+  // apenas uma vez em um no evento
+  @@unique([eventId, email])
   @@map("attendees")
 }
