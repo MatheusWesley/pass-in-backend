@@ -2,7 +2,16 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-  "title": "NLW Submit",         
+  "title": "Event test",         
   "details": "Um bootcamp para programadores!",       
   "maximumAttendees": 100
+}
+
+###
+POST http://localhost:3333/events/a860b770-ea51-4a0f-9903-c84b9109bde4/attendees
+Content-Type: application/json
+
+{
+  "name": "Matheus Wesley",         
+  "email": "matheuswesley@email.com"
 }
