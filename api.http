@@ -23,6 +23,15 @@ Content-Type: application/json
 GET http://localhost:3333/events/58e1a22b-200a-4d05-87d0-cc9287ff4100
 
 
-// Consultando o cartão do participante
 ###
+// Consultando o cartão do participante
 GET http://localhost:3333/attendees/1/badge
+
+###
+// Realizando o ckeck-in de um participante no evento
+
+GET http://localhost:3333/attendees/6/check-in
+
+###
+// Consultando todos os participantes de um evento
+GET http://localhost:3333/events/a860b770-ea51-4a0f-9903-c84b9109bde4/attendees?query=

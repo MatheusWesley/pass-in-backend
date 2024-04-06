@@ -5,6 +5,7 @@ import { registerForEvent } from "./routes/register-for-event";
 import { getEvent } from "./routes/get-event";
 import { getAttendeeBadge } from "./routes/get-attendee-badge";
 import { checkIn } from "./routes/check-in";
+import { getEventAttendees } from "./routes/get-event-attendees";
 
 const app = fastify();
 app.setValidatorCompiler(validatorCompiler);
@@ -22,13 +23,15 @@ app.register(registerForEvent)
 app.register(getEvent)
 app.register(getAttendeeBadge)
 app.register(checkIn)
+app.register(getEventAttendees)
 
 
 
 
 
 
-// Definindo a porta de execução.
+// Definindo a porta de execução, colocar o host como 0.0.0.0
+// me permite acessar as rotas de outros dispositivos com o ip da rede local
 app.listen({ port: 3333, host: '0.0.0.0'}).then(() => {
   console.log("Servidor HTTP rodando!!!");
   
