@@ -10,10 +10,19 @@ Content-Type: application/json
 
 ###
 // Registrando um participante em um evento.
-POST http://localhost:3333/events/58e1a22b-200a-4d05-87d0-cc9287ff4100/attendees
+POST http://localhost:3333/events/a860b770-ea51-4a0f-9903-c84b9109bde4/attendees
 Content-Type: application/json
 
 {
-  "name": "Matheus Wesley",         
-  "email": "matheuswesley2@email.com"
+  "name": "Math",         
+  "email": "math@email.com"
 }
+
+###
+// Consultando um evento
+GET http://localhost:3333/events/58e1a22b-200a-4d05-87d0-cc9287ff4100
+
+
+// Consultando o cartão do participante
+###
+GET http://localhost:3333/attendees/1/badge

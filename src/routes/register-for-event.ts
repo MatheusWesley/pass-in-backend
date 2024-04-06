@@ -4,7 +4,7 @@ import { z } from "zod";
 import { prisma } from "../lib/prisma";
 
 
-export async function RegisterForEvent (app: FastifyInstance) {
+export async function registerForEvent (app: FastifyInstance) {
 
   app.withTypeProvider<ZodTypeProvider>()
   /* 
