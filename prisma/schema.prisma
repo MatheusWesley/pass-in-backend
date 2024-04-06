@@ -34,9 +34,25 @@ model Attendee {
   // Cada participante pertence a 1 evento
   event Event @relation(fields: [eventId], references: [id])
 
+  // Cada participante pode fazer o check-in
+  // apenas uma vez, e o participante por existir sem fazer o check-in
+  checkIn CheckIn?
+
   // Aqui estou falando para o banco
   // que só de pode ter o email registrado
   // apenas uma vez em um no evento
   @@unique([eventId, email])
   @@map("attendees")
+}
+
+model CheckIn {
+  id       Int      @id @default(autoincrement())
+  createAt DateTime @default(now()) @map("create_at")
+
+  // Um participante pode realizar apenas UM check-in
+  // e o check-in pode ser feito apenas por UM participante
+  attendee   Attendee @relation(fields: [attendeeId], references: [id])
+  attendeeId Int      @unique @map("attendee_id")
+
+  @@map("check_ins")
 }
