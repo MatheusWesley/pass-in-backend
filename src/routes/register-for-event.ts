@@ -2,6 +2,7 @@ import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { prisma } from "../lib/prisma";
+import { BadRequest } from "./_errors/bad-request";
 
 
 export async function registerForEvent (app: FastifyInstance) {
@@ -44,7 +45,7 @@ export async function registerForEvent (app: FastifyInstance) {
     })
   
     if (attendeeFromEmail !== null) {
-      throw new Error('Email registered has already event');
+      throw new BadRequest('Email registered has already event');
     }
 
     // Verificando se o total de participantes ja foi atingido
@@ -62,7 +63,7 @@ export async function registerForEvent (app: FastifyInstance) {
     ])
 
     if (event?.maximumAttendees && totalAttendeesFromEvent >= event?.maximumAttendees) {
-      throw new Error ("Maximum attendees reached for this event.")
+      throw new BadRequest("Maximum attendees reached for this event.")
     }
 
 
