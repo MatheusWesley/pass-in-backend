@@ -14,6 +14,8 @@ export async function registerForEvent (app: FastifyInstance) {
   */
   .post('/events/:eventId/attendees', {
     schema: {
+      summary:'Register an attendee from event',
+      tags: ['Attendee'],
       body: z.object({
         name: z.string().min(3),
         email: z.string().email(),
